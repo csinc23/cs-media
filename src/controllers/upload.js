@@ -11,6 +11,7 @@ const baseUrl = "http://localhost:8080/files/";
 const mongoClient = new MongoClient(url);
 
 const uploadFiles = async (req, res) => {
+  console.log("/POST new File");
   try {
     await upload(req, res);
     console.log(req.files);
@@ -56,6 +57,7 @@ const uploadFiles = async (req, res) => {
 };
 
 const getListFiles = async (req, res) => {
+  console.log("/GET all Files");
   try {
     await mongoClient.connect();
 
@@ -87,6 +89,7 @@ const getListFiles = async (req, res) => {
 };
 
 const download = async (req, res) => {
+  console.log("/GET File : ", req.params.name);
   try {
     await mongoClient.connect();
 

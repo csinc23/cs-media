@@ -1,5 +1,9 @@
+const { join } = require("path");
+const env = require("dotenv");
+env.config({ path: join(__dirname, "../..", ".env") });
+
 module.exports = {
-  url: "mongodb+srv://cosuseracc:AUbBxdO3STgd4GYv@cluster0.omsh1c8.mongodb.net/media?retryWrites=true",
+  url: process.env.MONGO_URL,
   database: "media",
   imgBucket: "photos",
 };
